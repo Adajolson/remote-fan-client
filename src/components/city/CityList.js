@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { getCities } from "../../managers/CityManager"
 
 export const CityList = (props) => {
@@ -22,7 +22,9 @@ export const CityList = (props) => {
             {
                 cities.map(city => {
                     return <section key={`city--${city.id}`} className="city">
-                        <div className="city__label">{city.name}</div>
+                        <div className="city__label">
+                            <Link className="city__link" to={`/cities/${city.id}`}>{city.name}</Link>
+                        </div>
                     </section>
                 })
             }

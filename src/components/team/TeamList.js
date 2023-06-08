@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { getTeams } from "../../managers/TeamManager"
 
 export const TeamList = (props) => {
@@ -22,7 +22,9 @@ export const TeamList = (props) => {
             {
                 teams.map(team => {
                     return <section key={`team--${team.id}`} className="team">
-                        <div className="team__label">{team.name}</div>
+                        <div className="team__label">
+                        <Link className="team__link" to={`/teams/${team.id}`}>{team.name}</Link>
+                        </div>
                     </section>
                 })
             }

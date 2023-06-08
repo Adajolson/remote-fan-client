@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { getSports } from "../../managers/SportManager.js"
 
 export const SportList = (props) => {
@@ -22,7 +22,9 @@ export const SportList = (props) => {
             {
                 sports.map(sport => {
                     return <section key={`sport--${sport.id}`} className="sport">
-                        <div className="sport__label">{sport.label}</div>
+                        <div className="sport__label">
+                            <Link className="sport__link" to={`/sports/${sport.id}`}>{sport.label}</Link>
+                            </div>
                     </section>
                 })
             }

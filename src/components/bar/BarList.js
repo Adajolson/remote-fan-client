@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { getBars } from "../../managers/BarManager"
 
 export const BarList = (props) => {
@@ -22,7 +22,9 @@ export const BarList = (props) => {
             {
                 bars.map(bar => {
                     return <section key={`bar--${bar.id}`} className="bar">
-                        <div className="bar__label">{bar.name}</div>
+                        <div className="bar__label">
+                            <Link className="bar__link" to={`/bars/${bar.id}`}>{bar.name}</Link>
+                        </div>
                     </section>
                 })
             }

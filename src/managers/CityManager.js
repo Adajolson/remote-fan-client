@@ -15,3 +15,15 @@ export const getCityById = (id) => {
     })
     .then(res => res.json())
 }
+
+export const createCity = (city) => {
+    return fetch("http://localhost:8000/cities", {
+        method: "Post",
+        headers:{
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        },
+        body: JSON.stringify(city) 
+        })
+        .then(res => res.json())
+}

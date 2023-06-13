@@ -13,12 +13,11 @@ export const BarList = (props) => {
 
     return (
         <article className="bars">
-            {/*<button className="btn btn-2 btn-sep icon-create"
+            <button className="btn btn-2 btn-sep icon-create"
                 onClick={() => {
-                    navigate({ pathname: "/games/new" })
+                    navigate({ pathname: "/bars/new" })
                 }}
-            >Register New Game</button>
-            */}
+            >Add Bar</button>
             {
                 bars.map(bar => {
                     return <section key={`bar--${bar.id}`} className="bar">

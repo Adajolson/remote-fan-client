@@ -15,3 +15,25 @@ export const getBarById = (id) => {
     })
     .then(res => res.json())
 }
+
+export const createBar = (bar) => {
+    return fetch("http://localhost:8000/bars", {
+        method: "Post",
+        headers:{
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        },
+        body: JSON.stringify(bar) 
+        })
+        .then(res => res.json())
+}
+
+export const deleteBar = (id) => {
+    return fetch(`http://localhost:8000/bars/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    }
+    )
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useParams } from 'react-router-dom'
-import { getBarById } from "../../managers/BarManager"
+import { getBarById, deleteBar } from "../../managers/BarManager"
 
 export const SingleBar = (props) => {
     const navigate = useNavigate()
@@ -23,6 +23,9 @@ export const SingleBar = (props) => {
             <section key={`bar--${bar.id}`} className="bar">
                 <div className="bar__label">{bar.name}</div>
             </section>
+            <button type="button" onClick={() => (deleteBar(bar.id).then(() => {
+                    navigate({ pathname: "/bars" })
+                }))}>Delete</button>
         </article>
     )
 }

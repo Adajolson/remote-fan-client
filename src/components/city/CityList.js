@@ -13,12 +13,11 @@ export const CityList = (props) => {
 
     return (
         <article className="cities">
-            {/*<button className="btn btn-2 btn-sep icon-create"
+            <button className="btn btn-2 btn-sep icon-create"
                 onClick={() => {
-                    navigate({ pathname: "/games/new" })
+                    navigate({ pathname: "/cities/new" })
                 }}
-            >Register New Game</button>
-            */}
+            >Add New City</button>
             {
                 cities.map(city => {
                     return <section key={`city--${city.id}`} className="city">

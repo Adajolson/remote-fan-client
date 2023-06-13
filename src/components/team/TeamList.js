@@ -13,12 +13,12 @@ export const TeamList = (props) => {
 
     return (
         <article className="teams">
-            {/*<button className="btn btn-2 btn-sep icon-create"
+            <button className="btn btn-2 btn-sep icon-create"
                 onClick={() => {
-                    navigate({ pathname: "/games/new" })
+                    navigate({ pathname: "/teams/new" })
                 }}
-            >Register New Game</button>
-            */}
+            >Add New Team</button>
+            
             {
                 teams.map(team => {
                     return <section key={`team--${team.id}`} className="team">

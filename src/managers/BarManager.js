@@ -28,6 +28,17 @@ export const createBar = (bar) => {
         .then(res => res.json())
 }
 
+export const updateBar = (bar) => {
+    return fetch(`http://localhost:8000/bars/${bar.id}`, {
+    method: "PUT",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${localStorage.getItem("lu_token")}`
+    },
+    body: JSON.stringify(bar)
+    })
+}
+
 export const deleteBar = (id) => {
     return fetch(`http://localhost:8000/bars/${id}`, {
         method: "DELETE",

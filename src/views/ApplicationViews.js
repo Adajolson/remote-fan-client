@@ -13,6 +13,7 @@ import { SingleCity } from "../components/city/SingleCity"
 import { AddCity } from "../components/city/AddCity"
 import { AddTeam } from "../components/team/AddTeam"
 import { AddBar } from "../components/bar/AddBar"
+import { UpdateBar } from "../components/bar/UpdateBar"
 
 export const ApplicationViews = () => {
     return <>
@@ -30,6 +31,7 @@ export const ApplicationViews = () => {
                 <Route path="/teams/:teamId" element={<SingleTeam />} />
                 <Route path="/sports/:sportId" element={<SingleSport />} />
                 <Route path="/bars/:barId" element={<SingleBar />} />
+                <Route path="/bars/:barId/update" element={<UpdateBar />} />
                 <Route path="/cities/:cityId" element={<SingleCity />} />
             </Route>
         </Routes>

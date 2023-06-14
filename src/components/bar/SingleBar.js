@@ -26,6 +26,7 @@ export const SingleBar = (props) => {
             <button type="button" onClick={() => (deleteBar(bar.id).then(() => {
                     navigate({ pathname: "/bars" })
                 }))}>Delete</button>
+            <button type="button" onClick={() => navigate({ pathname: `/bars/${bar.id}/update` })}>Update</button>
         </article>
     )
 }

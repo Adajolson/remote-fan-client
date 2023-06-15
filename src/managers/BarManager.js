@@ -48,3 +48,34 @@ export const deleteBar = (id) => {
     }
     )
 }
+
+export const addTeamToBar = (updatedBar) => {
+    return fetch(`http://localhost:8000/bars/${updatedBar.id}/add_team_to_bar`, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${localStorage.getItem("lu_token")}`
+    },
+    body: JSON.stringify(updatedBar)
+    })
+    .then(res => res.json())
+}
+
+export const removeTeamFromBar = (teamId, barId) => {
+    return fetch(`http://localhost:8000/bars/${barId}/remove_team_from_bar`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        },
+        body: JSON.stringify({ teams: teamId })  // Pass the teamId as the payload
+    });
+};
+
+export const getBarByIdForTeams = (id) => {
+    return fetch(`http://localhost:8000/bars/${id}/addteams`, {
+    headers: {
+        "Authorization": `Token ${localStorage.getItem("lu_token")}`
+    }
+    })
+    .then(res => res.json())
+}

@@ -15,7 +15,7 @@ import { AddTeam } from "../components/team/AddTeam"
 import { AddBar } from "../components/bar/AddBar"
 import { UpdateBar } from "../components/bar/UpdateBar"
 import { AddTeamsToBar } from "../components/bar/AddTeamsToBar"
-import { RemoveTeamsFromBar } from "../components/bar/RemoveTeamsFromBar"
+import { EditTeams } from "../components/bar/EditTeamsInBar"
 
 export const ApplicationViews = () => {
     return <>
@@ -35,7 +35,7 @@ export const ApplicationViews = () => {
                 <Route path="/bars/:barId" element={<SingleBar />} />
                 <Route path="/bars/:barId/update" element={<UpdateBar />} />
                 <Route path="/bars/:barId/addTeams" element={<AddTeamsToBar />} />
-                <Route path="/bars/:barId/removeTeams" element={<RemoveTeamsFromBar />} />
+                <Route path="/bars/:barId/editTeams" element={<EditTeams />} />
                 <Route path="/cities/:cityId" element={<SingleCity />} />
             </Route>
         </Routes>

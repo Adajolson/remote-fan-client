@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useParams } from 'react-router-dom'
 import { getBarById, deleteBar } from "../../managers/BarManager"
-import { getTeams } from "../../managers/TeamManager"
 
 export const SingleBar = (props) => {
     const navigate = useNavigate()
@@ -28,8 +27,7 @@ export const SingleBar = (props) => {
                     navigate({ pathname: "/bars" })
                 }))}>Delete</button>
             <button type="button" onClick={() => navigate({ pathname: `/bars/${bar.id}/update` })}>Update</button>
-            <button type="button" onClick={() => navigate({ pathname: `/bars/${bar.id}/addTeams` })}>Add a Team</button>
-            <button type="button" onClick={() => navigate({ pathname: `/bars/${bar.id}/removeTeams` })}>Remove a Team</button>
+            <button type="button" onClick={() => navigate({ pathname: `/bars/${bar.id}/editTeams` })}>Edit Teams</button>
         </article>
     )
 }

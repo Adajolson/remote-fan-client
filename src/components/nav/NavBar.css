@@ -7,4 +7,17 @@
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 50px;
+}
+
+.nav-link {
+    padding: 3em;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    font-size: 100px;
+    font-weight: 25px;
 }

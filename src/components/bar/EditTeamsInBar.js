@@ -7,30 +7,35 @@ export const EditTeams = () => {
     const navigate = useNavigate()
 
     const { barId } = useParams()
-    const [ currentBar, setCurrentBar ] = useState({ teams: new Set() })
+    const [ currentBar, setCurrentBar ] = useState({ 
+        name: "",
+        city: 0,
+        address: "",
+        teams: new Set() })
     const [ teams, setTeams ] = useState([])
-    const [teamId, setTeamId] = useState("")
 
     useEffect(() => {
         getBarById(barId).then((res) => {
             res.teams = new Set(res.teams)
-            setCurrentBar(res)
-        
-        
+            setCurrentBar(res)       
         })
-    }, [])
+    }, [barId])
 
     useEffect(() => {
         getTeams().then((res) => setTeams(res))
     }, [])
 
-    // const editTeamArrayState = (domEvent) => {
-    //     const copies = {...currentBar.teams}
-    //     Array.from(copies)
-    //     copies.includes(domEvent.target.value)
-    //         ? setTeamId(domEvent.target.value)
-        
-    // }
+    const handleCheckboxChange = (teamId) => {
+        setCurrentBar((prevBar) => {
+        const updatedTeams = new Set(prevBar.teams);
+        if (updatedTeams.has(teamId)) {
+            updatedTeams.delete(teamId);
+        } else {
+            updatedTeams.add(teamId);
+        }
+        return { ...prevBar, teams: updatedTeams };
+        });
+    };
 
     return (
         <article>
@@ -40,21 +45,18 @@ export const EditTeams = () => {
             <section>
                 <label htmlFor="Teams">Team: </label>
                 <div>
-                    {teams.map((team) => (
-                        <label key={team.id}>
-                            <input
-                                name="teams"
-                                type="checkbox"
-                                value={team.id}
-                                onChange={(evt) => {
-                                    currentBar.teams.has(evt.target.value)
-                                    ? currentBar.teams.delete(evt.target.value)
-                                    : currentBar.teams.add(evt.target.value)
-                                }}
-                            />
-                            {team.name}
-                        </label>
-                    ))}
+                {teams.map((team) => (
+                    <label key={team.id}>
+                    <input
+                        name="teams"
+                        type="checkbox"
+                        value={team.id}
+                        checked={currentBar.teams.has(team.id)}
+                        onChange={() => handleCheckboxChange(team.id)}
+                    />
+                    {team.name}
+                    </label>
+                ))}
                 </div>
             </section>
 
@@ -62,8 +64,16 @@ export const EditTeams = () => {
                 type="submit"
                 onClick={(evt) => {
                     evt.preventDefault()
-                    
-                    editTeamsInBar(currentBar.teams, barId, ).then(() =>
+
+                    const updatedBar = {
+                        id: parseInt(currentBar.id),
+                        name: currentBar.name,
+                        city: currentBar.city,
+                        address: currentBar.address,
+                        teams: Array.from(currentBar.teams)
+                    }
+                    console.log(updatedBar)
+                    editTeamsInBar(updatedBar).then(() =>
                         navigate("/bars")
                     )
                 }}

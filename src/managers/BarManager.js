@@ -49,16 +49,37 @@ export const deleteBar = (id) => {
     )
 }
 
-export const editTeamsInBar = (teamId, barId, method) => {
-    return fetch(`http://localhost:8000/bars/${barId}/edit_teams_in_bar`, {
-        method: "POST",
+export const addTeamToBar = (updatedBar) => {
+    return fetch(`http://localhost:8000/bars/${updatedBar.id}/edit_teams_in_bar`, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${localStorage.getItem("lu_token")}`
+    },
+    body: JSON.stringify(updatedBar)
+    })
+    .then(res => res.json())
+}
+
+export const removeTeamFromBar = (teamId, barId) => {
+    return fetch(`http://localhost:8000/bars/${barId}/remove_team_from_bar`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        },
+        body: JSON.stringify({ teams: teamId })  // Pass the teamId as the payload
+    });
+};
+
+export const editTeamsInBar = (updatedBar) => {
+    return fetch(`http://localhost:8000/bars/${updatedBar.id}/edit_teams_in_bar`, {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         },
-        body: JSON.stringify({ teams: teamId })
+        body: JSON.stringify(updatedBar)
     })
-    .then(res => res.json())
 }
 
 export const getBarByIdForTeams = (id) => {

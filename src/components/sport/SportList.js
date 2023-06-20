@@ -12,7 +12,7 @@ export const SportList = (props) => {
     }, [])
 
     return (
-        <article className="sports">
+        <article className="sport flex flex-wrap p-10 m-2 space-y-3">
             {/*<button className="btn btn-2 btn-sep icon-create"
                 onClick={() => {
                     navigate({ pathname: "/games/new" })
@@ -21,8 +21,9 @@ export const SportList = (props) => {
             */}
             {
                 sports.map(sport => {
-                    return <section key={`sport--${sport.id}`} className="sport">
-                        <div className="sport__label">
+                    return <section key={`sport--${sport.id}`} className="sport h-[350px] w-[750px] py-8 px-8 max-w-sm mx-auto rounded-xl bg-transparent space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
+                        <img className="gearImage block mx-auto h-24 w-24 rounded-full sm:mx-0 sm:shrink-0" src={sport.logo} alt=""/>
+                        <div className="text-center space-y-2 sm:text-left">
                             <Link className="sport__link" to={`/sports/${sport.id}`}>{sport.label}</Link>
                             </div>
                     </section>

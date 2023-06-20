@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import { getCityById } from "../../managers/CityManager"
+import { deleteCity, getCityById } from "../../managers/CityManager"
 import { getTeams } from "../../managers/TeamManager"
 import { getBars } from "../../managers/BarManager" 
 
@@ -18,11 +18,17 @@ export const SingleCity = (props) => {
     }, [])
 
     useEffect(() =>{
-        getTeams().then(data => setTeams(data))
-    }, [])
+        getTeams().then(data => {
+            const filteredTeams = data.filter(team => team.city === city.id)
+            setTeams(filteredTeams)
+        })
+    }, [city])
 
     useEffect(() =>{
-        getBars().then(data => setBars(data))
+        getBars().then(data => {
+            const filteredBars = data.filter(bar => bar.city === city.id)
+            setBars(filteredBars)
+        });
     }, [])
 
     const filteredTeams = teams.filter(team => team.city === city.id)
@@ -40,6 +46,9 @@ export const SingleCity = (props) => {
             <section key={`city--${city.id}`} className="city">
                 <div className="city__label">{city.name}</div>
             </section>
+            <button type="button" onClick={() => (deleteCity(city.id).then(() => {
+                    navigate({ pathname: "/cities" })
+                }))}>Delete City</button>
             <section>
                 <h2>Teams:</h2>
                 <ul>

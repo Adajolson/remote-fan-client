@@ -27,3 +27,13 @@ export const createTeam = (team) => {
         })
         .then(res => res.json())
 }
+
+export const deleteTeam = (id) => {
+    return fetch(`http://localhost:8000/teams/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    }
+    )
+}

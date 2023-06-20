@@ -11,7 +11,8 @@ export const AddTeam = () => {
     const [ currentTeam, setCurrentTeam ] = useState({
         name: "",
         city: 0,
-        sport: 0
+        sport: 0,
+        logo: ""
     })
 
     useEffect(() => {
@@ -72,6 +73,13 @@ export const AddTeam = () => {
                     </select>
                 </div>
             </fieldset>
+            <fieldset>
+                <div className="form-group">
+                <label htmlFor="logo">Logo: </label>
+                    <input type="text" name="logo" value={currentTeam.logo}
+                        onChange={changeTeamState} />
+                </div>
+            </fieldset>
             <button type="submit"
                 onClick={evt => {
                     // Prevent form from being submitted
@@ -80,7 +88,8 @@ export const AddTeam = () => {
                     const team = {
                         name: currentTeam.name,
                         city: parseInt(currentTeam.city),
-                        sport: parseInt(currentTeam.sport)
+                        sport: parseInt(currentTeam.sport),
+                        logo: currentTeam.logo
                     }
 
                     // Send POST request to your API

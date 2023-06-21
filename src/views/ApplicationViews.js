@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, Outlet } from "react-router-dom"
 import { Login } from "../components/auth/Login"
 import { Register } from "../components/auth/Register"
 import { Authorized } from "./Authorized"
@@ -16,6 +16,7 @@ import { AddBar } from "../components/bar/AddBar"
 import { UpdateBar } from "../components/bar/UpdateBar"
 import { AddTeamsToBar } from "../components/bar/AddTeamsToBar"
 import { EditTeams } from "../components/bar/EditTeamsInBar"
+import { Home } from "../components/auth/Home"
 
 export const ApplicationViews = () => {
     return <>
@@ -23,6 +24,7 @@ export const ApplicationViews = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route element={<Authorized />}>
+                <Route path="/" element={<Home />} />
                 <Route path="/sports" element={<SportList />} />
                 <Route path="/bars" element={<BarList />} />
                 <Route path="/teams" element={<TeamList />} />

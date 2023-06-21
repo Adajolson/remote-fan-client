@@ -11,6 +11,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://img.freepik.com/free-vector/bright-stadium-arena-lights-effect_52683-30567.jpg?w=1380&t=st=1687357711~exp=1687358311~hmac=8b665a97c90a6d4bc5bed7041319482b27d25705f2e630de8984d355a88878de");
+  background-size: cover;
 }
 
 code {

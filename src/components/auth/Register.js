@@ -37,7 +37,7 @@ export const Register = () => {
         }
     }
 
-    return (
+    return (<div className="w-[30%] bg-gray-300 rounded-lg mx-auto shadow-lg shadow-black mt-10 opacity-90 p-4">
         <main style={{ textAlign: "center" }}>
 
             <dialog className="dialog dialog--password" ref={passwordDialog}>
@@ -81,5 +81,6 @@ export const Register = () => {
                 Already registered? <Link to="/login">Login</Link>
             </section>
         </main>
+        </div>
     )
 }

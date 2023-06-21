@@ -29,13 +29,13 @@ export const AddTeam = () => {
         setCurrentTeam(copy)
     }
 
-    return (
-        <form className="teamForm">
-            <h2 className="teamForm__title">Add New Team</h2>
+    return (<div className="w-[30%] bg-gray-300 rounded-lg mx-auto shadow-lg shadow-black mt-10 opacity-90 p-4">
+        <form className="teamForm flex flex-col bg-gray">
+            <h2 className="teamForm__title mx-auto text-black pt-10 bg-blue font-bold m-8 py-8 px-8 rounded-full">Add New Team</h2>
             <fieldset>
-                <div className="form-group">
+                <div className="form-group ">
                     <label htmlFor="name">Team: </label>
-                    <input type="text" name="name" required autoFocus className="form-control"
+                    <input type="text" name="name" required autoFocus className="form-control w-[250px]"
                         value={currentTeam.name}
                         onChange={changeTeamState}
                     />
@@ -76,7 +76,7 @@ export const AddTeam = () => {
             <fieldset>
                 <div className="form-group">
                 <label htmlFor="logo">Logo: </label>
-                    <input type="text" name="logo" value={currentTeam.logo}
+                    <input type="text" name="logo" value={currentTeam.logo} placeholder="Put logo URL here"
                         onChange={changeTeamState} />
                 </div>
             </fieldset>
@@ -98,5 +98,6 @@ export const AddTeam = () => {
                 }}
                 className="btn btn-primary">Submit</button>
         </form>
+        </div>
     )
 }

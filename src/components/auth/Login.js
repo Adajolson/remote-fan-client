@@ -28,7 +28,7 @@ export const Login = () => {
             })
     }
 
-    return (
+    return (<div className="w-[30%] bg-gray-300 rounded-lg mx-auto shadow-lg shadow-black mt-10 opacity-90 p-4">
         <main className="container--login">
             <dialog className="dialog dialog--auth" ref={invalidDialog}>
                 <div>Username or password was not valid.</div>
@@ -57,5 +57,6 @@ export const Login = () => {
                 <Link to="/register">Not a member yet?</Link>
             </section>
         </main>
+        </div>
     )
 }

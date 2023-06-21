@@ -15,7 +15,7 @@ export const AddCity = () => {
         setCurrentCity(copy)
     }
 
-    return (
+    return (<div className="w-[30%] bg-gray-300 rounded-lg mx-auto shadow-lg shadow-black mt-10 opacity-90 p-4">
         <form className="cityForm">
             <h2 className="cityForm__title">Add New City</h2>
             <fieldset>
@@ -52,5 +52,6 @@ export const AddCity = () => {
                 }}
                 className="btn btn-primary">Submit</button>
         </form>
+        </div>
     )
 }

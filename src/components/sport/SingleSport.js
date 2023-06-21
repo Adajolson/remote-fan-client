@@ -21,26 +21,24 @@ export const SingleSport = (props) => {
         });
     }, [sport])
 
-    const filteredTeams = teams.filter(team => team.sport === sport.id)
-
     return (
-        <article className="sport pt-10">
+        <article className="sport flex flex-col items-center justify-center mt-[10%]">
             {/*<button className="btn btn-2 btn-sep icon-create"
                 onClick={() => {
                     navigate({ pathname: "/games/new" })
                 }}
             >Register New Game</button>
             */}
-            <section key={`sport--${sport.id}`} className="sport">
-                <div className="text-3xl sport__label flex items-center justify-center pt-25">{sport.label}</div>
+            <section key={`sport--${sport.id}`} className="sport mx-auto">
+                <div className="text-3xl sport__label flex items-center justify-center pt-25 bg-transparent text-white font-bold m-8 rounded-full">{sport.label}</div>
                 
             </section>
             <section>
-                <h2 className="flex items-center justify-center">Teams:</h2>
+                <h2 className="justify-center items-center text-4xl text-white font-semibold m-8 py-10 px-10">Teams</h2>
                 <ul>
-                    {filteredTeams.map(team => (
-                        <li key={team.id} className="flex items-center justify-center">
-                            <Link className="team__link" to={`/teams/${team.id}`}>{team.name}</Link></li>
+                    {teams.map(team => (
+                        <li key={team.id} className="items-center justify-center pt-25 bg-transparent text-white font-bold w-72 m-8 py-4 px-8 rounded-full">
+                            <Link className="team__link" to={`/teams/${team.id}`}><img className="gearImage block mx-auto rounded-lg sm:mx-0 sm:shrink-0" src={team.logo} alt=""/></Link></li>
                     ))}
                 </ul>
             </section>

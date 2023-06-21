@@ -30,7 +30,7 @@ export const AddTeamsToBar = () => {
         copy[domEvent.target.name] = domEvent.target.value
         setCurrentBar(copy)
     }
-    return (
+    return (<div className="w-[30%] bg-gray-300 rounded-lg mx-auto shadow-lg shadow-black mt-10 opacity-90 p-4">
         <article>
             <section key={`bar--${currentBar.id}`} className="bar">
                 <div className="bar__label">{currentBar.name}</div>
@@ -69,5 +69,6 @@ export const AddTeamsToBar = () => {
                 }}
                 className="btn btn-primary">Submit</button>
         </article>
+        </div>
         )
 }

@@ -42,7 +42,7 @@ export const NavBar = () => {
 
                     <nav className="flex justify-between bg-gray-900 text-white w-screen">
                         <div className="px-5 xl:px-12 py-6 flex w-full items-center">
-                        <a className="text-3xl font-bold font-heading">Remote Fan</a>
+                        <a className="text-3xl font-bold font-heading"><Link className="navbar__link" to="/">Remote Fan</Link></a>
                         <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                             <li className="hover:text-gray-200"><Link className="navbar__link" to="/sports">Sports</Link></li>
                             <li className="hover:text-gray-200"><Link className="navbar__link" to="/bars">Bars</Link></li>

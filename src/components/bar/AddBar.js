@@ -23,7 +23,7 @@ export const AddBar = () => {
         setCurrentBar(copy)
     }
 
-    return (
+    return (<div className="w-[30%] bg-gray-300 rounded-lg mx-auto shadow-lg shadow-black mt-10 opacity-90 p-4">
         <form className="teamForm">
             <h2 className="teamForm__title">Add New Bar</h2>
             <fieldset>
@@ -77,5 +77,6 @@ export const AddBar = () => {
                 }}
                 className="btn btn-primary">Submit</button>
         </form>
+        </div>
     )
 }

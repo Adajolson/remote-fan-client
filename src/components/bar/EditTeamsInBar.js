@@ -37,7 +37,7 @@ export const EditTeams = () => {
         });
     };
 
-    return (
+    return (<div className="w-[30%] bg-gray-300 rounded-lg mx-auto shadow-lg shadow-black mt-10 opacity-90 p-4">
         <article>
             <section key={`bar--${currentBar.id}`} className="bar">
                 <div className="bar__label">{currentBar.name}</div>
@@ -72,7 +72,6 @@ export const EditTeams = () => {
                         address: currentBar.address,
                         teams: Array.from(currentBar.teams)
                     }
-                    console.log(updatedBar)
                     editTeamsInBar(updatedBar).then(() =>
                         navigate("/bars")
                     )
@@ -82,5 +81,6 @@ export const EditTeams = () => {
                 Submit
             </button>
         </article>
+        </div>
     )
 }

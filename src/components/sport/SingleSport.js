@@ -22,26 +22,25 @@ export const SingleSport = (props) => {
     }, [sport])
 
     return (
-        <article className="sport flex flex-col items-center justify-center mt-[10%]">
-            {/*<button className="btn btn-2 btn-sep icon-create"
-                onClick={() => {
-                    navigate({ pathname: "/games/new" })
-                }}
-            >Register New Game</button>
-            */}
-            <section key={`sport--${sport.id}`} className="sport mx-auto">
-                <div className="text-3xl sport__label flex items-center justify-center pt-25 bg-transparent text-white font-bold m-8 rounded-full">{sport.label}</div>
-                
+        <div className="flex flex-col justify-center bg-transparent mt-[15%]">
+        <article className="mx-auto">
+            <section key={`sport--${sport.id}`} className="">
+                <div className="text-center text-3xl text-white font-bold m-4">{sport.label}</div>
             </section>
-            <section>
-                <h2 className="justify-center items-center text-4xl text-white font-semibold m-8 py-10 px-10">Teams</h2>
-                <ul>
-                    {teams.map(team => (
-                        <li key={team.id} className="items-center justify-center pt-25 bg-transparent text-white font-bold w-72 m-8 py-4 px-8 rounded-full">
-                            <Link className="team__link" to={`/teams/${team.id}`}><img className="gearImage block mx-auto rounded-lg sm:mx-0 sm:shrink-0" src={team.logo} alt=""/></Link></li>
-                    ))}
-                </ul>
+                <h2 className="text-center text-3xl text-white font-bold m-4">Teams</h2>
+            <section className="flex flex-wrap mt-[10%]">
+                {
+                teams.map(team => {
+                    return <section key={`team--${team.id}`} className="team flex flex-col m-8 rounded-xl bg-transparent ">
+                        <img className="block mx-auto h-36 w-36 rounded-lg" src={team.logo} alt=""/>
+                        <div className="team__label text-center space-y-2 sm:text-left text-white">
+                        <Link className="team__link" to={`/teams/${team.id}`}>{team.name}</Link>
+                        </div>
+                    </section>
+                })
+            }
             </section>
         </article>
+        </div>
     )
 }

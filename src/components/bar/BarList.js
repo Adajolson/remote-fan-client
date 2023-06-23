@@ -12,18 +12,18 @@ export const BarList = (props) => {
     }, [])
 
     return (
-        <article className="bars flex flex-col pt-10 mt-[15%]">
-            <div className="mx-auto">
-            <button className="items-center justify-items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+        <article className="flex flex-col justify-center bg-transparent mt-[15%]">
+            <div className="mx-auto text-center text-4xl text-white hover:text-black hover:bg-white font-bold my-4 py-2 px-4 rounded-full">
+            <button className="items-center justify-items-center"
                 onClick={() => {
                     navigate({ pathname: "/bars/new" })
                 }}
             >Add Bar</button>
             </div>
-            <div className="flex flex-wrap mx-auto mt-[10%]">
+            <div className="mx-auto text-center my-4">
             {
                 bars.map(bar => {
-                    return <section key={`bar--${bar.id}`} className="bar items-center m-8 py-8 px-8 max-w-sm bg-blue-500 mx-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text">
+                    return <section key={`bar--${bar.id}`} className="text-lg text-white hover:text-black hover:bg-white rounded-full my-1">
                         <div className="bar__label">
                             <Link className="bar__link" to={`/bars/${bar.id}`}>{bar.name}</Link>
                         </div>

@@ -29,22 +29,20 @@ export const AddTeam = () => {
         setCurrentTeam(copy)
     }
 
-    return (<div className="w-[30%] bg-gray-300 rounded-lg mx-auto shadow-lg shadow-black mt-10 opacity-90 p-4">
-        <form className="teamForm flex flex-col bg-gray">
-            <h2 className="teamForm__title mx-auto text-black pt-10 bg-blue font-bold m-8 py-8 px-8 rounded-full">Add New Team</h2>
+    return (<div className="flex w-[25%] bg-transparent rounded-lg mx-auto mt-[20%]  mt-10 opacity-90 p-4">
+        <form className="teamForm w-full max-w-sm">
+            <h2 className="teamForm__title text-center text-white text-3xl text-bold my-4">Add New Team</h2>
             <fieldset>
-                <div className="form-group ">
-                    <label htmlFor="name">Team: </label>
-                    <input type="text" name="name" required autoFocus className="form-control w-[250px]"
+                <div className="form-group flex items-center border-b border-white">
+                    <input type="text" name="name" required autoFocus className="form-control appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none" placeholder="Team Name"
                         value={currentTeam.name}
                         onChange={changeTeamState}
                     />
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
-                    <label htmlFor="City">City: </label>
-                    <select name="city" value={currentTeam.city}
+                <div className="">
+                    <select name="city" value={currentTeam.city} className="my-4 py-1 px-0 w-full text-white bg-transparent border-0 border-b-2 border-white appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
                     onChange={changeTeamState}>
                         <option>Choose a city:</option>
                             {
@@ -59,8 +57,7 @@ export const AddTeam = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="sport">Sport: </label>
-                    <select name="sport" value={currentTeam.sport}
+                    <select name="sport" value={currentTeam.sport} className="my-4 py-1 px-0 w-full text-white bg-transparent border-0 border-b-2 border-white appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
                     onChange={changeTeamState}>
                         <option>Choose a sport:</option>
                             {
@@ -74,12 +71,12 @@ export const AddTeam = () => {
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
-                <label htmlFor="logo">Logo: </label>
-                    <input type="text" name="logo" value={currentTeam.logo} placeholder="Put logo URL here"
+                <div className="form-group flex items-center border-b border-white">
+                    <input type="text" name="logo" value={currentTeam.logo} className="my-2 form-control appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none" placeholder="Put logo URL here"
                         onChange={changeTeamState} />
                 </div>
             </fieldset>
+            <div className="flex items-center my-4">
             <button type="submit"
                 onClick={evt => {
                     // Prevent form from being submitted
@@ -96,7 +93,8 @@ export const AddTeam = () => {
                     createTeam(team)
                         .then(() => navigate("/teams"))
                 }}
-                className="btn btn-primary">Submit</button>
+                className="btn btn-primary text-white hover:bg-white hover:text-black w-full">Submit</button>
+                </div>
         </form>
         </div>
     )

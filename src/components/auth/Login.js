@@ -28,34 +28,40 @@ export const Login = () => {
             })
     }
 
-    return (<div className="w-[30%] bg-gray-300 rounded-lg mx-auto shadow-lg shadow-black mt-10 opacity-90 p-4">
-        <main className="container--login">
+    return (<div className="flex w-[25%] mx-auto bg-transparent rounded-lg mt-[20%] mt-10 opacity-90 p-4">
+        <main className="container--login items-center w-full max-w-sm">
             <dialog className="dialog dialog--auth" ref={invalidDialog}>
                 <div>Username or password was not valid.</div>
                 <button className="button--close" onClick={e => invalidDialog.current.close()}>Close</button>
             </dialog>
-            <section>
+            <section className="">
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Remote Fan</h1>
-                    <h2>Please sign in</h2>
+                    <h1 className="text-center text-white text-3xl text-bold">Remote Fan</h1>
+                    <h2 className="text-center text-white text-lg text-bold">Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputUsername"> Username address </label>
-                        <input ref={username} type="username" id="username" className="form-control" placeholder="Username address" required autoFocus />
+                        <div className="form-group flex items-center border-b border-white m-1">
+                            <input ref={username} type="username" id="username" className="form-control appearance-none bg-transparent border-none w-full text-white py-1 px-2 leading-tight focus:outline-none" placeholder="Username" required autoFocus />
+                        </div>
                     </fieldset>
                     <fieldset>
-                        <label htmlFor="inputPassword"> Password </label>
-                        <input ref={password} type="password" id="password" className="form-control" placeholder="Password" required />
+                        <div className="form-group flex items-center border-b border-white m-1">
+                            <input ref={password} type="password" id="password" className="form-control appearance-none bg-transparent border-none w-full text-white py-1 px-2 leading-tight focus:outline-none" placeholder="Password" required />
+                        </div>
                     </fieldset>
                     <fieldset style={{
                         textAlign: "center"
                     }}>
-                        <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button>
+                        <div className="flex items-center m-1">
+                        <button className="btn btn-1 btn-sep icon-send text-white hover:bg-white hover:text-black w-full" type="submit">Sign In</button>
+                        </div>
                     </fieldset>
                 </form>
             </section>
-            <section className="link--register">
+            <div className="flex items-center m-1">
+            <section className="link--register text-white hover:bg-white hover:text-black w-full">
                 <Link to="/register">Not a member yet?</Link>
             </section>
+            </div>
         </main>
         </div>
     )

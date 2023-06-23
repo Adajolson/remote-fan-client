@@ -31,40 +31,35 @@ export const SingleCity = (props) => {
         });
     }, [city])
 
-    return (
-        <article className="city flex flex-col items-center justify-center pt-10">
-            {/*<button className="btn btn-2 btn-sep icon-create"
-                onClick={() => {
-                    navigate({ pathname: "/games/new" })
-                }}
-            >Register New Game</button>
-            */}
-            <section key={`city--${city.id}`} className="city mx-auto flex bg-blue-500 hover:bg-blue-700 text-white font-bold m-8 py-8 px-8 rounded-full">
-                <div className="city__label">{city.name}</div>
+    return (<div className="flex flex-col justify-center bg-transparent mt-[15%]">
+        <article className="mx-auto">
+            <section key={`city--${city.id}`} className="city">
+                <div className="city__label text-center text-4xl text-white font-bold">{city.name}</div>
             </section>
-            <div className="mx-auto">
-            <button type="button" className="bg-blue-500 hover:bg-blue-700 text-white font-bold m-8 py-8 px-8 rounded-full" onClick={() => (deleteCity(city.id).then(() => {
+            <div className="mx-auto text-center text-xl text-white hover:text-black hover:bg-white font-bold my-4 py-2 px-4 rounded-full">
+            <button type="button" className="" onClick={() => (deleteCity(city.id).then(() => {
                     navigate({ pathname: "/cities" })
                 }))}>Delete City</button>
             </div>
-            <section>
-                <h2 className=" items-center text-4xl text-white font-semibold m-8 py-10 px-8">Teams:</h2>
+                <h2 className="mx-auto text-center text-xl text-white font-bold my-4">Teams:</h2>
+            <section className="mx-auto text-center my-4">
                 <ul>
                     {teams.map(team => (
-                        <li key={team.id} className="items-center justify-center pt-25 bg-blue-500 hover:bg-blue-700 text-white font-bold m-8 py-8 px-8 rounded-full">
+                        <li key={team.id} className="text-lg text-white hover:text-black hover:bg-white rounded-full my-1">
                             <Link className="team__link" to={`/teams/${team.id}`}>{team.name}</Link></li>
                     ))}
                 </ul>
             </section>
-            <section>
-                <h2 className="items-center text-4xl text-white font-semibold m-8 py-8 px-8">Bars:</h2>
+                <h2 className="mx-auto text-center text-xl text-white font-bold my-4">Bars:</h2>
+            <section className="mx-auto text-center my-4">
                 <ul>
                     {bars.map(bar => (
-                        <li key={bar.id} className="bg-blue-500 hover:bg-blue-700 text-white font-bold m-8 py-8 px-8 rounded-full">
+                        <li key={bar.id} className="text-lg text-white hover:text-black hover:bg-white rounded-full my-1">
                             <Link className="bar__link" to={`/bars/${bar.id}`}>{bar.name}</Link></li>
                     ))}
                 </ul>
             </section>
         </article>
+        </div>
     )
 }

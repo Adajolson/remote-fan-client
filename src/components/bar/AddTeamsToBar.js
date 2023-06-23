@@ -30,20 +30,20 @@ export const AddTeamsToBar = () => {
         copy[domEvent.target.name] = domEvent.target.value
         setCurrentBar(copy)
     }
-    return (<div className="w-[30%] bg-gray-300 rounded-lg mx-auto shadow-lg shadow-black mt-10 opacity-90 p-4">
-        <article>
+    return (<div className="flex w-[25%] bg-transparent rounded-lg mx-auto mt-[18%]  mt-10 opacity-90 p-4">
+        <article className="teamForm w-full max-w-sm">
             <section key={`bar--${currentBar.id}`} className="bar">
-                <div className="bar__label">{currentBar.name}</div>
+                <div className="bar__label text-center text-white text-3xl text-bold">{currentBar.name}</div>
             </section>
             <section>
-                <label htmlFor="Teams">Team: </label>
+            <h2 className="teamForm__title text-center text-white text-xl text-bold my-2">Teams</h2>
                 <div>
                     {teams.map((team) => (
-                        <label key={team.id}>
+                        <label key={team.id} className="text-white m-2 flex flex-wrap items-center mx-auto">
                             <input
                                 name="teams"
                                 type="checkbox"
-                                value={team.id}
+                                value={team.id} className="m-1"
                                 onChange={(evt) => {
                                     currentBar.teams.add(evt.target.value)
                                 }}
@@ -53,6 +53,7 @@ export const AddTeamsToBar = () => {
                     ))}
                 </div>
             </section>
+            <div className="flex items-center">
             <button type="submit"
                 onClick={evt => {
                     // Prevent form from being submitted
@@ -67,7 +68,8 @@ export const AddTeamsToBar = () => {
                     addTeamToBar(updatedBar)
                         .then(() => navigate("/bars"))
                 }}
-                className="btn btn-primary">Submit</button>
+                className="btn btn-primary text-white hover:bg-white hover:text-black w-full">Submit</button>
+                </div>
         </article>
         </div>
         )

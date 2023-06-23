@@ -62,18 +62,18 @@ export const SingleBar = (props) => {
     return (
     <div className="flex flex-col justify-center bg-transparent mt-[15%]">
         <div className="group h-96 w-96 [perspective:1000px] mx-auto">
-            <div className="relative h-full w-full rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+            <div className=" relative h-full w-full rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                 <div className="absolute inset-0" key={`bar--${bar.id}`}>
                     <h1 className="text-center text-3xl text-white font-bold m-4">{bar.name}</h1>
                     <p className="text-center text-lg text-white">{bar.address}</p>
                 </div>
                 <div className="absolute inset-0 h-full w-full rounded-xl bg-black/80 px-12 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
                     <div className="flex min-h-full flex-col items-center justify-center">
-                    <div className="items-center ml-10">
-                    <button type="button" className="justify-center items-center bg-blue-500 hover:bg-blue-700 text-white font-bold ml-4 py-2 px-4 rounded-full" onClick={() => (deleteBar(bar.id).then(() => {
+                    <div className="flex items-center">
+                    <button type="button" className="justify-center items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded-full" onClick={() => (deleteBar(bar.id).then(() => {
                         navigate({ pathname: "/bars" })
                             }))}>Delete Bar</button>
-                    <button type="button" className="items-center bg-blue-500 hover:bg-blue-700 text-white font-bold m-4 py-2 px-4 rounded-full" onClick={() => navigate({ pathname: `/bars/${bar.id}/update` })}>Update Bar</button>
+                    <button type="button" className="items-center bg-blue-500 hover:bg-blue-700 text-white font-bold m-2 py-2 px-4 rounded-full" onClick={() => navigate({ pathname: `/bars/${bar.id}/update` })}>Update Bar</button>
                 </div>
                         <h1 className="text-3xl font-bold m-4">Teams</h1>
                         <ul>

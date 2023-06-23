@@ -15,27 +15,26 @@ export const AddCity = () => {
         setCurrentCity(copy)
     }
 
-    return (<div className="w-[30%] bg-gray-300 rounded-lg mx-auto shadow-lg shadow-black mt-10 opacity-90 p-4">
-        <form className="cityForm">
-            <h2 className="cityForm__title">Add New City</h2>
+    return (<div className="flex w-[25%] bg-transparent rounded-lg mx-auto mt-[20%]  mt-10 opacity-90 p-4">
+        <form className="cityForm w-full max-w-sm">
+            <h2 className="cityForm__title text-center text-white text-3xl text-bold">Add New City</h2>
             <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name">City: </label>
-                    <input type="text" name="name" required autoFocus className="form-control"
+                <div className="form-group  flex items-center border-b border-white my-4">
+                    <input type="text" name="name" required autoFocus className="form-control appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none" placeholder="City"
                         value={currentCity.name}
                         onChange={changeCityState}
                     />
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
-                    <label htmlFor="state">State: </label>
-                    <input type="text" name="state" required autoFocus className="form-control"
+                <div className="form-group  flex items-center border-b border-white my-4">
+                    <input type="text" name="state" required autoFocus className="form-control appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none" placeholder="State"
                         value={currentCity.state}
                         onChange={changeCityState}
                     />
                 </div>
             </fieldset>
+            <div className="flex items-center">
             <button type="submit"
                 onClick={evt => {
                     // Prevent form from being submitted
@@ -50,7 +49,8 @@ export const AddCity = () => {
                     createCity(city)
                         .then(() => navigate("/cities"))
                 }}
-                className="btn btn-primary">Submit</button>
+                className="btn btn-primary text-white hover:bg-white hover:text-black w-full my-4">Submit</button>
+                </div>
         </form>
         </div>
     )

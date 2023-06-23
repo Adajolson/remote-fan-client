@@ -22,7 +22,8 @@ export const BarList = (props) => {
             </div>
             <div className="mx-auto text-center my-4">
             {
-                bars.map(bar => {
+                bars.sort((a,b) => a.name.localeCompare(b.name))
+                .map(bar => {
                     return <section key={`bar--${bar.id}`} className="text-lg text-white hover:text-black hover:bg-white rounded-full my-1">
                         <div className="bar__label">
                             <Link className="bar__link" to={`/bars/${bar.id}`}>{bar.name}</Link>

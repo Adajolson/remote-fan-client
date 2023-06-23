@@ -22,7 +22,8 @@ export const CityList = (props) => {
             </div>
             <div className="mx-auto text-center my-4">
             {
-                cities.map(city => {
+                cities.sort((a,b) => a.name.localeCompare(b.name))
+                .map(city => {
                     return <section key={`city--${city.id}`} className="text-lg text-white hover:text-black hover:bg-white rounded-full my-1">
                         <div className="city__label">
                             <Link className="city__link" to={`/cities/${city.id}`}>{city.name}</Link>

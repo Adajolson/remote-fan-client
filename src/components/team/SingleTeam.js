@@ -64,7 +64,7 @@ return (
                     <h1 className="text-3xl font-bold m-4">Bars</h1>
                     <ul>
                     {bars.map(bar => (
-                        <li key={bar.id} className="text-lg">
+                        <li key={bar.id} className="text-lg text-white hover:text-black hover:bg-white rounded-full my-1">
                             <Link className="bar__link" to={`/bars/${bar.id}`}>{bar.name}</Link></li>
                     ))}
                 </ul>
